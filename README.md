@@ -1,5 +1,5 @@
 # Advanced Tutorial: General Predictive Maintenance
-![](Docs/images/042116_1633_PredictiveM1.png "Predictive Maintenance")
+![](media/042116_1633_PredictiveM1.png "Predictive Maintenance")
 
 * Documentation site for Microsoft internal dog food.
 * Documentation site for external private preview customers.
