@@ -1,5 +1,5 @@
 # Advanced Tutorial: General Predictive Maintenance
-![](media/042116_1633_PredictiveM1.png "Predictive Maintenance")
+![](Docs/images/042116_1633_PredictiveM1.png "Predictive Maintenance")
 
 * Documentation site for Microsoft internal dog food.
 * Documentation site for external private preview customers.
@@ -47,13 +47,7 @@ The simulated data for this example comes from the following sources:
   * Telemetry: The operating conditions of a machine from sensor data.
   * Failure history: The failure history of a machine or component within the machine.
 
-We have stored the data on a GitHub site for other tutorials. To download this data and prepare your environment, start the Azure Machine Learning Workbench app, and open the Predictive Maintenance project. From a command line, run the download.py script with the command:
-```
-az ml experiment submit -c docker download.py
-```
-This script will take a few minutes to download and store the csv files in the shared folder (option 2 in https://github.com/Azure/ViennaDocs/blob/master/Documentation/PersistingChanges.md)
-
-Once the data is downloaded, see the Data Ingestion Jupyter Notebook task in `Code/data_ingestion.ipnyb`, which loads the component data sets into PySpark format for this analysis. The raw data is stored in an Azure Blob storage container on your subscription for use in the feature engineering task.
+We have stored the data on a GitHub site for other tutorials. The Data Ingestion Jupyter Notebook task in `Code/data_ingestion.ipnyb` loads the component data sets into PySpark format for this analysis and does some preliminary data visualization. The raw data is stored in an Azure Blob storage container on your subscription for use in the feature engineering task.
 
 ## Task 2. Feature Engineering
 
@@ -84,14 +78,10 @@ We are eager to hear about your experience as you go through this example scenar
 
 # Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+When you submit a pull request, a CLA-bot automatically determines whether you need to provide a CLA and decorate the PR appropriately. You only need to follow the instructions provided by the bot across all Microsoft repos to use our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+More information is available at [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
