@@ -55,7 +55,7 @@ Next we describe the step-by-step tutorial workflow. The end to end tutorial is 
 
 * [Model Building](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/model_building.ipynb): The final feature engineered dataset is then split into two namely a train and a test dataset based on a date-time stamp. Then two models namely a Random Forest Classifier and Decision Tree Classifier are built on the training dataset and then scored on the test dataset. 
 
-* [Model operationalization & Deployment](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/test_pdm_operationalization.ipynb): The best model built in the previous step is then saved as a .model file along with the relevant .json scheme file for deployment. The init() and run() functions are first tested locally before operationalizing the model using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions.  
+* [Model operationalization & Deployment](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/operationalization.ipynb): The best model built in the previous step is then saved as a .model file along with the relevant .json scheme file for deployment. The init() and run() functions are first tested locally before operationalizing the model using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions.  
 
 ## Conclusion & Next Steps
 
@@ -77,4 +77,4 @@ Multiple team members from across various organizations within Microsoft worked 
 
 ## Contact
 
-###Feel free to contact Your Name (yourname@microsoft.com) with any question or comment.
+For additional information contact Jaya Mathew (jaymathe@microsoft.com) and John Ehrlinger (john.ehrlinger@microsoft.com) with any question or comment.
