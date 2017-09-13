@@ -77,4 +77,4 @@ Multiple team members from across various organizations within Microsoft worked 
 
 ## Contact
 
-For any additional information contact Jaya Mathew (jaymathe@microsoft.com) and John Ehrlinger (john.ehrlinger@microsoft.com) with any question or comment.
+For additional information contact Jaya Mathew (jaymathe@microsoft.com) and John Ehrlinger (john.ehrlinger@microsoft.com) with any question or comment.
