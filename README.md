@@ -59,6 +59,8 @@ See the Model Building Jupyter Notebook task in `Code/model_building.ipnyb` that
 
 ## Task 4. Operationalization
 
+See the Model Building Jupyter Notebook task in `Code/operationalization.ipnyb` that takes one of the best models and builds the functions to deploy and operationalize the model in a realtime production environment.
+
 ## Conclusion
 
 This real world scenario showcases an end to end predictive maintenance use case using the Jupyter notebook environment within Azure ML Workbench. We demonstrate using Jupyter notebooks to download data sources, engineer model features, and compare modeling techniques. We then work through how to deploy the model with the "best" performance, using Azure ML CLI.
