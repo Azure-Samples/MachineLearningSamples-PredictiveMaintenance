@@ -77,4 +77,4 @@ Multiple team members from across various organizations within Microsoft worked 
 
 ## Contact
 
-For additional information contact Jaya Mathew (jaymathe@microsoft.com) and John Ehrlinger (john.ehrlinger@microsoft.com) with any question or comment.
+For additional information contact the team at [Azure ML Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=machinelearning).

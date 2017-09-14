@@ -18,7 +18,7 @@ The goal of this scenario is to guide a data scientist through the implementatio
 
 ## Prerequisites
 
-  1. An installation of *Azure Machine Learning Workbench* Ap + CLI by following the [installation guide](../Installation.md).
+  1. An installation of *Azure Machine Learning Workbench* App + CLI by following the [installation guide](../Installation.md).
 
   2. For operationalization, we require SSH access to a Linux VM with Docker engine installed. A convenient approach is to use an [Ubuntu Linux DSVM (Data Science Virtual Machine)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). Instructions for using the CLI to  [Operationalization your model on a VM](http://aka.ms/o16ncli) are also provided.
 
@@ -47,23 +47,23 @@ The simulated data for this example comes from the following sources:
   * Telemetry: The operating conditions of a machine from sensor data.
   * Failure history: The failure history of a machine or component within the machine.
 
-We have stored the data on a GitHub site for other tutorials. The Data Ingestion Jupyter Notebook task in `Code/data_ingestion.ipnyb` loads the component data sets into PySpark format for this analysis and does some preliminary data visualization. The raw data is stored in an Azure Blob storage container on your subscription for use in the feature engineering task.
+We have stored the data on a GitHub site for other tutorials. The Data Ingestion Jupyter Notebook task in `Code/data_ingestion.ipynb` loads the component data sets into PySpark format for this analysis and does some preliminary data visualization. The raw data is stored in an Azure Blob storage container on your subscription for use in the feature engineering task.
 
 ## Task 2. Feature Engineering
 
-See the Feature Engineering Jupyter Notebook task in `Code\feature_enginerring.ipnyb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
+See the Feature Engineering Jupyter Notebook task in `Code/feature_engineering.ipynb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
 
 ## Task 3. Model Building & Evaluation
 
-See the Model Building Jupyter Notebook task in `Code/model_building.ipnyb` that takes PySpark feature engineering data set from blob storage and builds and evaluates multiple models. It then compares these models to determine a "best" solution for predict component failures. The resulting model is serialized and stored in your Azure Blob storage container for use in the operationalization task.
+See the Model Building Jupyter Notebook task in `Code/model_building.ipynb` that takes PySpark feature engineering data set from blob storage and builds and evaluates multiple models. It then compares these models to determine a "best" solution for predict component failures. The resulting model is serialized and stored in your Azure Blob storage container for use in the operationalization task.
 
 ## Task 4. Operationalization
 
-See the Model Building Jupyter Notebook task in `Code/operationalization.ipnyb` that takes one of the best models and builds the functions to deploy and operationalize the model in a realtime production environment.
+See the Operationalization Jupyter Notebook task in `Code/operationalization.ipynb` for details in taking a trained model and building functions to deploy and operationalize the model in a real time production environment.
 
 ## Conclusion
 
-This real world scenario showcases an end to end predictive maintenance use case using the Jupyter notebook environment within Azure ML Workbench. We demonstrate using Jupyter notebooks to download data sources, engineer model features, and compare modeling techniques. We then work through how to deploy the model with the "best" performance, using Azure ML CLI.
+This real world scenario showcases an end to end predictive maintenance use case using the Jupyter notebook environment within Azure ML Workbench. We demonstrate using Jupyter notebooks to download data sources, engineer model features, and compare modeling techniques. We then work through how to deploy the model with the "best" performance, using Azure Machine Learning Model Management environment .
 
 ## References
 
