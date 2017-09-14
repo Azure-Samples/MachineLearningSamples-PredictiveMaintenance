@@ -40,7 +40,7 @@ The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/
 * [Telemetry](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): The telemetry time-series data consists of voltage, rotation, pressure, and vibration sensor measurements collected from each machine in real time. The data is averaged over an hour and stored in the telemetry logs
 * [Failures](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): Failures correspond to component replacements within the maintenance log. Each record contains the Machine ID, component type, and replacement date and time. These records are used to create the machine learning labels that the model is trying to predict.
 
-See the [Data Ingestion](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_git/ViennaPredMaintTut?path=%2FCode%2Fdata_ingestion.ipynb&version=GBmaster&_a=contents) Jupyter Notebook tutorial in Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
+See the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/data_ingestion.ipynb) Jupyter Notebook tutorial in Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
 
 ## Scenario Structure
 The content for the tutorial is available at the [GitHub repository](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance). 
