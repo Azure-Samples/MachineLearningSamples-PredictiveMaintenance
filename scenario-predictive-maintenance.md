@@ -10,7 +10,7 @@ Following is the link to the public GitHub repository:
 ## Prerequisites
 
 1. An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
-2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml) following the [quick start installation guide](./quick-start-installation) to install the program and create a workspace.
 3. Intermediate results for use across Jupyter notebooks in this tutorial is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
 4. For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
 5. This tutorial assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
