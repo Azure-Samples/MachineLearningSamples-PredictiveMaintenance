@@ -51,7 +51,7 @@ We have stored the data on a GitHub site for other tutorials. The Data Ingestion
 
 ## Task 2. Feature Engineering
 
-See the Feature Engineering Jupyter Notebook task in `Code\feature_enginerring.ipynb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
+See the Feature Engineering Jupyter Notebook task in `Code/feature_engineering.ipynb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
 
 ## Task 3. Model Building & Evaluation
 
@@ -63,7 +63,7 @@ See the Operationalization Jupyter Notebook task in `Code/operationalization.ipy
 
 ## Conclusion
 
-This real world scenario showcases an end to end predictive maintenance use case using the Jupyter notebook environment within Azure ML Workbench. We demonstrate using Jupyter notebooks to download data sources, engineer model features, and compare modeling techniques. We then work through how to deploy the model with the "best" performance, using Azure ML CLI.
+This real world scenario showcases an end to end predictive maintenance use case using the Jupyter notebook environment within Azure ML Workbench. We demonstrate using Jupyter notebooks to download data sources, engineer model features, and compare modeling techniques. We then work through how to deploy the model with the "best" performance, using Azure Machine Learning Model Management environment .
 
 ## References
 
