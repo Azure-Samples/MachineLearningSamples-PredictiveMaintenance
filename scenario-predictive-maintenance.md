@@ -1,15 +1,20 @@
 # Predictive Maintenance Real World Scenario
 
+## Link of the Gallery GitHub repository
+
+Following is the link to the public GitHub repository: 
+
+[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+
+
 ## Prerequisites
 
-Note this section is included in the Readme file on GitHub repo.
+1. An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
+2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+3. Intermediate results for use across Jupyter notebooks in this tutorial is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
+4. For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
+5. This tutorial assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
 
-1. Ensure that you have properly installed Azure ML Workbench by following the [installation guide](https://github.com/Azure/ViennaDocs/blob/master/Documentation/Installation.md).
-2. Intermediate results for use across Jupyter notebooks in this tutorial is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
-3. For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
-4. This tutorial assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
-
-Notes:
  
 * The tutorial was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). 
 * Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
@@ -57,7 +62,7 @@ Next we describe the step-by-step tutorial workflow. The end to end tutorial is 
 
 * [Model operationalization & Deployment](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/operationalization.ipynb): The best model built in the previous step is then saved as a .model file along with the relevant .json scheme file for deployment. The init() and run() functions are first tested locally before operationalizing the model using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions.  
 
-## Conclusion & Next Steps
+## Conclusion
 
 This tutorial gives the reader an overview of how to build an end to end predictive maintenance solution using PySpark within the Jupyter notebook environment in Azure ML Workbench. The tutorial also guides the reader on how the best model can be easily operationalized and deployed using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions. Then the reader can edit relevant parts of the tutorial to taper it to their business needs.  
 
@@ -71,9 +76,6 @@ This use case has been previously developed on multiple platforms as listed belo
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## Acknowledgement
-
-Multiple team members from across various organizations within Microsoft worked collaboratively to help build this end to end tutorial.  
 
 ## Contact
 
