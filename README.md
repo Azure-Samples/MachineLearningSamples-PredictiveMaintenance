@@ -51,7 +51,7 @@ We have stored the data on a GitHub site for other tutorials. The Data Ingestion
 
 ## Task 2. Feature Engineering
 
-See the Feature Engineering Jupyter Notebook task in `Code\feature_engineering.ipynb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
+See the Feature Engineering Jupyter Notebook task in `Code/feature_engineering.ipynb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
 
 ## Task 3. Model Building & Evaluation
 
