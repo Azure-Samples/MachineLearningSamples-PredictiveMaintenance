@@ -77,4 +77,4 @@ Multiple team members from across various organizations within Microsoft worked 
 
 ## Contact
 
-For additional information contact Azure ML Forum https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=machinelearning.
+For additional information contact the team at [Azure ML Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=machinelearning).
