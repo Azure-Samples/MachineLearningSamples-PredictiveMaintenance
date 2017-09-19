@@ -77,6 +77,8 @@ See the Model Building Jupyter Notebook task in `Code/3_model_building.ipnyb` th
 
 See the Model Building Jupyter Notebook task in `Code/4_operationalization.ipnyb` that takes one of the best models and builds the init() and run() functions need to deploy and operationalize these models. These functions are first tested locally and three files are saved locally pdmrfull.model, pdmscore.py,  service_schema.json in preparation for operationalization. 
 
+### Task 4.1: Use the CLI to deploy and manage your web service
+
 Use the following commands to set up an environment and account to run the web service.
  
 * Create the environment (you need to do this once per environment e.g. dev or prod)
