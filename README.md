@@ -1,4 +1,4 @@
-# Advanced Tutorial: General Predictive Maintenance
+# Advanced Scenario: General Predictive Maintenance
 ![](images/042116_1633_PredictiveM1.png "Predictive Maintenance")
 
 * Documentation site for Microsoft internal dog food.
