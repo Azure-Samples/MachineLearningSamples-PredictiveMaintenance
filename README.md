@@ -7,8 +7,6 @@ https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-ma
  - The public GitHub repository for this real world scenario contains all the code samples:
 https://gallery.cortanaintelligence.com/project/63020a531cf04688ba8f1b6379b59136
 
-
-
 ## Introduction
 
 Understanding fleet maintenance requirements can have a large impact on business safety and profitability. 
@@ -46,13 +44,30 @@ Launch the *Azure Machine Learning Workbench* App, sign-in, and create a new bla
 
 Next from the [GitHub repo](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) download the [Jupyter notebooks](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) to run within *Azure Machine Learning Workbench* App. These files need to be saved in the same folder called "PredictiveMaintenance", so that they can be run from within the app.  
 
-To learn more about running these notebooks within the *Azure Machine Learning Workbench* App refer to this [link](https://github.com/Azure/ViennaDocs/blob/master/Documentation/UsingJupyter.md). From the `File` menu on the top left menu, select either the `Open Command Prompt` or `Open PowerShell`. Then run these commands to open a new window `http://localhost:8888/tree` where the code can be accessed within the `Code` folder. 
+To learn more about running these notebooks within the *Azure Machine Learning Workbench* App refer to this [link](https://github.com/Azure/ViennaDocs/blob/master/Documentation/UsingJupyter.md). 
+
+From the `File` menu, select either the `Open Command Prompt` or `Open PowerShell`.
+
+ - To run on your local machine execute the following commands:
 
 `az ml experiment prepare --target docker --run-configuration docker`
 
+ - However, we suggest running on a Ubuntu DSVM. Once the DSVM is configured through the http://portal.azure.com, you will need to run the following 2 commands:
+
+`az ml computetarget attach --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword] --type remotedocker`
+
+`az ml experiment prepare --target [Desired_Connection_Name] --run-configuration [Desired_Connection_Name]`
+
+With the docker images _prepared_, open the jupyter notebook server either within the *AML Workbench* notebooks tab, or to start a browser based server, run:
 `az ml notebook start`
 
-Ensure that docker is running before you run the notebooks in order. When you open the notebooks, set the kernel to "PredictiveMaintenance docker"
+- Notebooks are stored in the `Code` directory in the Jupyter environment. We will run these sequentially, starting on the first (`Code\1_data_ingestion.ipynb`) notebook.
+
+- When prompted for a kernel choose [Project_Name]_Template [Desired_Connection_Name] and click Set Kernel
+
+- Assuming you had no other code running in docker, you will now see a container running in docker on your VM
+
+- Run through the rest of the numbered notebooks.
 
 ## Task 1: Prepare your data
 
