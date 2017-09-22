@@ -93,7 +93,7 @@ The Model Building Jupyter Notebook in `Code/3_model_building.ipnyb` that reads 
 
 The operationalization Jupyter Notebook in `Code/4_operationalization.ipnyb` that takes the stored model and builds required functions and schema for calling the model on an Azure hosted web service. The notebook tests the functions, and zips the operationalization assets into a zip file that is also stored in your Azure Blob storage container. 
 
-The operationalization zipped file (o16n.zip) contains three assets: `pdmrfull.model`, `pdmscore.py`,  `service_schema.json`. The notebook then details instructions for how to deploy this model for integration into a full predictive maintenance solution workflow. 
+The operationalization zipped file (`o16n.zip`) contains three assets: `pdmrfull.model`, `pdmscore.py`,  `service_schema.json`. The notebook then details instructions for how to deploy this model for integration into a full predictive maintenance solution workflow. 
 
 ## Conclusion
 
