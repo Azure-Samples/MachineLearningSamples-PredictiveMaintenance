@@ -1,8 +1,13 @@
 # Advanced Scenario: General Predictive Maintenance
 ![](images/042116_1633_PredictiveM1.png "Predictive Maintenance")
 
-* Documentation site for Microsoft internal dog food.
-* Documentation site for external private preview customers.
+ - The detailed documentation for this real world scenario includes the step-by-step walk through:
+https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-maintenance 
+
+ - The public GitHub repository for this real world scenario contains all the code samples:
+https://gallery.cortanaintelligence.com/project/63020a531cf04688ba8f1b6379b59136
+
+
 
 ## Introduction
 
@@ -22,7 +27,7 @@ A major problem faced by businesses in asset-heavy industries is the significant
 
 This scenario leverages the ideas from the playbook by providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems by bringing together common data elements observed among many predictive maintenance use cases..
 
-The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multiclass classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this scenario, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
+The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multi-class classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this scenario, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
 
 ## Prerequisites
 
@@ -31,8 +36,8 @@ The business problem for this simulated data is to predict issues caused by comp
 * Intermediate results for use across Jupyter notebooks in this scenario is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are at this [link](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account). 
 * For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
 * This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
-* The scenario was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). 
-* Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
+* The scenario was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version `17.06.0-ce-win19 (12801)`. 
+* Model operationalization was done using this version of Azure ML CLI: `azure-cli-ml==0.1.0a22`
 
  
 ## Let's Begin
@@ -44,8 +49,6 @@ Next from the [GitHub repo](https://github.com/Azure/MachineLearningSamples-Pred
 To learn more about running these notebooks within the *Azure Machine Learning Workbench* App refer to this [link](https://github.com/Azure/ViennaDocs/blob/master/Documentation/UsingJupyter.md). From the `File` menu on the top left menu, select either the `Open Command Prompt` or `Open PowerShell`. Then run these commands to open a new window `http://localhost:8888/tree` where the code can be accessed within the `Code` folder. 
 
 `az ml experiment prepare --target docker --run-configuration docker`
-
-`pip install notebook`
 
 `az ml notebook start`
 
@@ -71,54 +74,15 @@ See the Feature Engineering Jupyter Notebook task in `Code/2_feature_engineering
 
 ## Task 3: Model Building & Evaluation
 
-See the Model Building Jupyter Notebook task in `Code/3_model_building.ipnyb` that takes PySpark feature engineering data set from blob storage and split into two namely a train and a test dataset based on a date-time stamp. Then two models namely a Random Forest Classifier and Decision Tree Classifier are built on the training datasets. It then compares these models to determine a "best" solution for predict component failures. The resulting model is serialized and stored in your Azure Blob storage container for use in the operationalization task.
+See the Model Building Jupyter Notebook task in `Code/3_model_building.ipnyb` that takes PySpark feature engineering data set from blob storage and split into two namely a train and a test data set based on a date-time stamp. Then two models namely a Random Forest Classifier and Decision Tree Classifier are built on the training data sets. It then compares these models to determine a "best" solution for predict component failures. The resulting model is serialized and stored in your Azure Blob storage container for use in the operationalization task.
 
 ## Task 4: Operationalization
 
-See the Model Building Jupyter Notebook task in `Code/4_operationalization.ipnyb` that takes one of the best models and builds the init() and run() functions need to deploy and operationalize these models. These functions are first tested locally and three files are saved locally pdmrfull.model, pdmscore.py,  service_schema.json in preparation for operationalization. 
-
-### Task 4.1: Use the CLI to deploy and manage your web service
-
-Use the following commands to set up an environment and account to run the web service.
- 
-* Create the environment (you need to do this once per environment e.g. dev or prod)
-`az ml env setup -c -n <yourclustername> --location <e.g. eastus2>`
-
-* Create a Model Management account (one time setup)
-`az ml account modelmanagement create --location <e.g. eastus2> -n <your-new-acctname> -g <yourresourcegroupname> --sku-instances 1 --sku-name S1`
-
-* Set the Model Management account
-`az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>`
-
-* Set the environment. The cluster name is the name used in step 1 above. The resource group name was the output of the same process and would be in the command window when the setup process is completed.
-`az ml env set -n <yourclustername> -g <yourresourcegroupname>`
-
-Once this setup is complete, switch to a bash shell, and run the following commands to deploy your service and run it.
-Enter the path where the notebook and other files are saved. Your actual path may be different from this example.
-`cd ~/notebooks/azureml/realtime/`
-
-This assumes that you saved your model, schema file and .py file locally.
-`az ml service create realtime -f pdmscore.py -r  spark-py -m pdmrfull.model -s service_schema.json -n pdmservice --cpu 0.1`
-
-This command will return the sample run command with sample data. You can get the Service Id from the output of the create command above.
-
-`az ml service show realtime -i <yourserviceid>
-Call the web service to get a prediction
-az ml service run realtime -i <yourserviceid> -d "{\"input_df\": [{\"machineID\":114, \"vo
-lt_rollingmean_3\":163.375732902, \"rotate_rollingmean_3\":333.149484586, \"pressure_rollingmean_3\":100.183951698, \"vibration_rollingmean_3\":44.0958812638, \"volt_rollingme
-an_24\":164.114723991, \"rotate_rollingmean_24\":277.191815232, \"pressure_rollingmean_24\":97.6289110707, \"vibration_rollingmean_24\":50.8853505161, \"volt_rollingstd_3\":21
-.0049565219, \"rotate_rollingstd_3\":67.5287259378, \"pressure_rollingstd_3\":12.9361526861, \"vibration_rollingstd_3\":4.61359760918, \"volt_rollingstd_24\":15.5377738062, \"
-rotate_rollingstd_24\":67.6519885441, \"pressure_rollingstd_24\":10.528274633, \"vibration_rollingstd_24\":6.94129487555, \"error1sum_rollingmean_24\":0.0, \"error2sum_rolling
-mean_24\":0.0, \"error3sum_rollingmean_24\":0.0, \"error4sum_rollingmean_24\":0.0, \"error5sum_rollingmean_24\":0.0, \"comp1sum\":489.0, \"comp2sum\":549.0, \"comp3sum\":549.0
-, \"comp4sum\":564.0, \"age\":180}]}"`
-
-This should return the predicted output label is as follows:
-`"0.0"` 
-
+See the Model Building Jupyter Notebook task in `Code/4_operationalization.ipnyb` that takes one of the best models and builds the init() and run() functions need to deploy and operationalize these models. These functions are first tested locally and three files are saved locally in the Jupyter notebook kernel compute context: `pdmrfull.model`, `pdmscore.py`,  `service_schema.json` in preparation for operationalization. 
 
 ## Conclusion
 
-This scenario gives the reader an overview of how to build an end to end predictive maintenance solution using PySpark within the Jupyter notebook environment in *Azure Machine Learning Workbench*. The scenario also guides the reader on how the best model can be easily operationalized and deployed using *Azure Machine Learning Model Management* environment for use in a production environment for making realtime failure predictions. Then the reader can edit relevant parts of the scenario to fit their business needs.  
+This scenario gives the reader an overview of how to build an end to end predictive maintenance solution using PySpark within the Jupyter notebook environment in *Azure Machine Learning Workbench*. The scenario also guides the reader on how the best model can be easily operationalized and deployed using *Azure Machine Learning Model Management* environment for use in a production environment for making real time failure predictions. Then the reader can edit relevant parts of the scenario to fit their business needs.  
 
 ## References
 
@@ -137,7 +101,7 @@ We are eager to hear your experience as you go through this example scenario. If
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
-When you submit a pull request, a CLA-bot automatically determines whether you need to provide a CLA and decorate the PR appropriately. You only need to follow the instructions provided by the bot across all Microsoft repos to use our CLA.
+When you submit a pull request, a CLA-bot automatically determines whether you need to provide a CLA and decorate the PR appropriately. You only need to follow the instructions provided by the bot across all Microsoft repository to use our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 More information is available at [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
