@@ -5,7 +5,7 @@ The detailed documentation for this real world scenario includes the step-by-ste
 [https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-maintenance](https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-maintenance)
 
 The public GitHub repository for this real world scenario contains all the code samples:
-[https://gallery.cortanaintelligence.com/project/63020a531cf04688ba8f1b6379b59136](https://gallery.cortanaintelligence.com/project/63020a531cf04688ba8f1b6379b59136)
+[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 ## Introduction
 
@@ -55,7 +55,7 @@ Feature Engineering Jupyter Notebook in `Code/2_feature_engineering.ipnyb`, that
 
 ## Task 3: Model Building & Evaluation
 
-The Model Building Jupyter Notebook in `Code/3_model_building.ipnyb` that reads `PySpark` feature set from blob storage and splits into the train and test data sets based on the date-timestamp. Then two models, a Decision Tree Classifier and a Random Forest Classifier, are built with the training data sets. The model performance measured on the test set is compared to determine a "best" solution to predict component failures. The resulting model is serialized and stored in the local compute contest for use in the operationalization task.
+The Model Building Jupyter Notebook in `Code/3_model_building.ipnyb` that reads `PySpark` feature set from blob storage and splits into the train and test data sets based on the date-timestamp. Then two models, a Decision Tree Classifier and a Random Forest Classifier, are built with the training data sets. The model performance measured on the test set is compared to determine a "best" solution to predict component failures. The resulting model is serialized and stored in the local compute context for use in the operationalization task.
 
 ## Task 4: Operationalization
 
