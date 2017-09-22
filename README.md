@@ -2,9 +2,11 @@
 ![](images/042116_1633_PredictiveM1.png "Predictive Maintenance")
 
  - The detailed documentation for this real world scenario includes the step-by-step walk through:
+
 https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-maintenance 
 
  - The public GitHub repository for this real world scenario contains all the code samples:
+
 https://gallery.cortanaintelligence.com/project/63020a531cf04688ba8f1b6379b59136
 
 ## Introduction
@@ -34,19 +36,31 @@ The business problem for this simulated data is to predict issues caused by comp
 * Intermediate results for use across Jupyter notebooks in this scenario is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are at this [link](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account). 
 * For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
 * This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
-* The scenario was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version `17.06.0-ce-win19 (12801)`. 
-* Model operationalization was done using this version of Azure ML CLI: `azure-cli-ml==0.1.0a22`
+* The scenario was built and tested on a Windows 10 machine running a remote [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). The default size of the machine is DS4_V2 standard is 8 CPUs, 28GB and disk size of 50GB. However, to run the PySpark jobs utilized in this scenario, the user will need to increase that disk size to 100GB. This can be done via the Azure portal by doing the following steps: 
+	* Stop the VM 
+	* Click on ‘Disks’
+	* Choose ‘OS Disk’
+	* Set ‘Size’ to 100 GiB 
+	* Click Save
+	* Go back to the overview panel and re-start the machine. Note down the new IP address. 
+	* To verify the system is working: SSH with putty or any similar tool using the IP address. Type in `ds -h` to ensure that `/dev/sda1` has 100GiB size.  
+* Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
+* The approximate run time for the scenario varies but can range from 2-3 hrs. 
+
 
  
 ## Let's Begin
 
-Launch the *Azure Machine Learning Workbench* App, sign-in, and create a new blank project by selecting the `+` option near the `Projects` menu on the top left pane. Call it "PredictiveMaintenance" by entering this in the `Project name` column and then select the `Create` button at the bottom of the pane. 
+Launch the *Azure Machine Learning Workbench* App, sign-in, and create a new blank project by selecting the `+ New Project` option near the `Projects` menu on the top left pane. In the `Project name` column, enter "PredictiveMaintenance" and then browse through the samples listed at the bottom panel for 'Predictive Maintenance', select this sample and then click on the `Create` button at the bottom of the pane. 
 
-Next from the [GitHub repo](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) download the [Jupyter notebooks](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) to run within *Azure Machine Learning Workbench* App. These files need to be saved in the same folder called "PredictiveMaintenance", so that they can be run from within the app.  
+Once the project is created, all the `aml_config` files and `Code` gets copied over to your workspace. To learn more about running these notebooks within the *Azure Machine Learning Workbench* App refer to this [link](https://github.com/Azure/ViennaDocs/blob/master/Documentation/UsingJupyter.md). From the `File` menu on the top left menu, select either the `Open Command Prompt` or `Open PowerShell` CLI. 
 
-To learn more about running these notebooks within the *Azure Machine Learning Workbench* App refer to this [link](https://github.com/Azure/ViennaDocs/blob/master/Documentation/UsingJupyter.md). 
+Once the Linux (Ubuntu) VM is created, it can be attached as an execution environment by generating a pair of  `.runconfig`  and  `.compute`  files within *Azure Machine Learning Workbench* App. To do so the user needs to right click the `aml_config` folder and choose `New Item` option. Then copy the content from any of the existing  `.runconfig`  and  `.compute`  files and then name the new environment `pdmvmdocker`. Edit the generated  `pdmvmdocker.runconfig`  file under  `aml_config` and change the `PrepareEnvironment` from default  false  to  true: 
+`"PrepareEnvironment": "true"`
+Check to see if the generated `pdmvmdocker.runconfig` file under `aml_config` has the Framework set to `PySpark`:
+`"Framework": "PySpark"`
 
-From the `File` menu, select either the `Open Command Prompt` or `Open PowerShell`.
+Save these files and then create the compute target environment in the CLI.
 
  - To run on your local machine execute the following commands:
 
