@@ -79,21 +79,21 @@ The simulated data consists of five comma-separated values (.csv) files.
 * [Telemetry](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): The telemetry time-series data consists of voltage, rotation, pressure, and vibration sensor measurements collected from each machine in real time. The data is averaged over an hour and stored in the telemetry logs
 * [Failures](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): Failures correspond to component replacements within the maintenance log. Each record contains the Machine ID, component type, and replacement date and time. These records are used to create the machine learning labels that the model is trying to predict.
 
-See the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/data_ingestion.ipynb) Jupyter Notebook scenario in the Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
-
-The Data Ingestion Jupyter Notebook task in the `Code/1_data_ingestion.ipnyb` loads the five input data sets into PySpark format for this analysis and does some preliminary data visualization. The raw data is stored in an Azure Blob storage container on your subscription for use in the feature engineering task.
+The Data Ingestion Jupyter Notebook in the `Code/1_data_ingestion.ipnyb` loads the five input data sets into PySpark format for this analysis and does some preliminary data visualization. The raw data is stored in an Azure Blob storage container on your subscription for use in the feature engineering task.
 
 ## Task 2: Feature Engineering
 
-See the Feature Engineering Jupyter Notebook task in `Code/2_feature_engineering.ipnyb`, that takes PySpark data sets and creates the time series features used in the modeling step for this analysis. This feature engineering data set is also stored in your Azure Blob storage container for use in the model building and evaluation task.
+Feature Engineering Jupyter Notebook in `Code/2_feature_engineering.ipnyb`, that reads `PySpark` data sets and creates the time series features used in the modeling building task. The resulting feature data set is also stored in your Azure Blob storage container.
 
 ## Task 3: Model Building & Evaluation
 
-See the Model Building Jupyter Notebook task in `Code/3_model_building.ipnyb` that takes PySpark feature engineering data set from blob storage and split into two namely a train and a test data set based on a date-time stamp. Then two models namely a Random Forest Classifier and Decision Tree Classifier are built on the training data sets. It then compares these models to determine a "best" solution for predict component failures. The resulting model is serialized and stored in your Azure Blob storage container for use in the operationalization task.
+The Model Building Jupyter Notebook in `Code/3_model_building.ipnyb` that reads `PySpark` feature set from blob storage and splits into the train and test data sets based on the date-timestamp. Then two models, a Decision Tree Classifier and a Random Forest Classifier, are built with the training data sets. The model performance measured on the test set is compared to determine a "best" solution to predict component failures. The resulting model is serialized and stored in the local compute contest for use in the operationalization task.
 
 ## Task 4: Operationalization
 
-See the Model Building Jupyter Notebook task in `Code/4_operationalization.ipnyb` that takes one of the best models and builds the init() and run() functions need to deploy and operationalize these models. These functions are first tested locally and three files are saved locally in the Jupyter notebook kernel compute context: `pdmrfull.model`, `pdmscore.py`,  `service_schema.json` in preparation for operationalization. 
+The operationalization Jupyter Notebook in `Code/4_operationalization.ipnyb` that takes the stored model and builds required functions and schema for calling the model on an Azure hosted web service. The notebook tests the functions, and zips the operationalization assets into a zip file that is also stored in your Azure Blob storage container. 
+
+The operationalization zipped file (o16n.zip) contains three assets: `pdmrfull.model`, `pdmscore.py`,  `service_schema.json`. The notebook then details instructions for how to deploy this model for integration into a full predictive maintenance solution workflow. 
 
 ## Conclusion
 
@@ -108,9 +108,6 @@ This use case has been previously developed on multiple platforms:
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-
-## How to get help and send feedback
-We are eager to hear your experience as you go through this example scenario. If you have any feedback or need help, contact us through the [forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=machinelearning).
 
 # Contributing
 
