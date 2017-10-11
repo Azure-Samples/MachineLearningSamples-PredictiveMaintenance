@@ -6,8 +6,8 @@
 # Spark configuration properties.
 configuration:
   "spark.app.name": "Azure ML Experiment"
-  "spark.driver.memory":	"4g"
-  "spark.executor.memory":	"4g"
+  "spark.driver.memory":	"6g"
+  "spark.executor.memory":	"6g"
   "spark.yarn.maxAppAttempts": 1
 
 # Repositories to search for the specified Spark packages.
