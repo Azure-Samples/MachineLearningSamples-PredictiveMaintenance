@@ -102,3 +102,8 @@ ENV/
 
 # Visual studio artifacts
 .vs/
+
+.azuremlhistory_git
+.ipynb_checkpoints
+azureml-logs
+*.dprep.user

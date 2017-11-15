@@ -23,7 +23,7 @@ dependencies:
   - pip:
     # The API for Azure Machine Learning Model Management Service.
     # Details: https://github.com/Azure/Machine-Learning-Operationalization
-    - azure-ml-api-sdk==0.1.0a10
+    - azure-ml-api-sdk==0.1.0a11
 
     # Helper utilities for dealing with Azure ML Workbench Assets.
     - https://azuremldownloads.blob.core.windows.net/wheels/latest/azureml.assets-1.0.0-py3-none-any.whl?sv=2016-05-31&si=ro-2017&sr=c&sig=xnUdTm0B%2F%2FfknhTaRInBXyu2QTTt8wA3OsXwGVgU%2BJk%3D
