@@ -107,3 +107,7 @@ ENV/
 .ipynb_checkpoints
 azureml-logs
 *.dprep.user
+aml_config/dockerDSVM.compute
+aml_config/dockerDSVM.runconfig
+
+.vscode/settings.json

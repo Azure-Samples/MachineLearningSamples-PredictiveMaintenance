@@ -9,8 +9,6 @@
         "ComSpec": "C:\\WINDOWS\\system32\\cmd.exe",
         "CUDA_PATH": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v9.0",
         "CUDA_PATH_V9_0": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v9.0",
-        "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
-        "FPS_BROWSER_USER_PROFILE_STRING": "Default",
         "FSHARPINSTALLDIR": "C:\\Program Files (x86)\\Microsoft SDKs\\F#\\4.1\\Framework\\v4.0\\",
         "GOOGLE_API_KEY": "AIzaSyAQfxPJiounkhOjODEO5ZieffeBv6yft2Q",
         "HOMEDRIVE": "C:",
@@ -51,7 +49,9 @@
         "USERDOMAIN_ROAMINGPROFILE": "NORTHAMERICA",
         "USERNAME": "jehrling",
         "USERPROFILE": "C:\\Users\\jehrling",
-        "windir": "C:\\WINDOWS"
+        "windir": "C:\\WINDOWS",
+        "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+        "FPS_BROWSER_USER_PROFILE_STRING": "Default"
     },
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
     "python.pythonPath": "C:\\Users\\jehrling\\AppData\\local\\AmlWorkbench\\Python\\python.exe"
