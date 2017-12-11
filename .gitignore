@@ -114,7 +114,3 @@ aml_config/dockerDSVM.runconfig
 .ipynb_checkpoints
 azureml-logs
 *.dprep.user
-.azuremlhistory_git
-.ipynb_checkpoints
-azureml-logs
-*.dprep.user
