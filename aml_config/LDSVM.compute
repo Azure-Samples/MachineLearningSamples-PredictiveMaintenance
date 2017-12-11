@@ -1,0 +1,7 @@
+address: pdmdsvm.eastus2.cloudapp.azure.com
+baseDockerImage: microsoft/mmlspark:plus-0.9.9
+nativeSharedDirectory: ~/.azureml/share/
+password: AzureMlSecret=LDSVM#pdmuser#41d9c5b4c22545bca0199d29d6791212
+sharedVolumes: true
+type: remotedocker
+username: pdmuser
