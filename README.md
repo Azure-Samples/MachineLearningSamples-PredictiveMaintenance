@@ -1,6 +1,5 @@
 # Advanced Scenario: General Predictive Maintenance
 
-
 The detailed documentation for this real world scenario includes the step-by-step walk-through:
 [https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-maintenance](https://docs.microsoft.com/azure/machine-learning/preview/scenario-predictive-maintenance)
 
