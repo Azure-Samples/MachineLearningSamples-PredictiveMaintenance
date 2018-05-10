@@ -115,5 +115,5 @@ aml_config/dockerDSVM.runconfig
 azureml-logs
 *.dprep.user
 .vscode/settings.json
-aml_config/dlvmjme.compute
-aml_config/dlvmjme.runconfig
+aml_config/*.compute
+aml_config/*.runconfig
